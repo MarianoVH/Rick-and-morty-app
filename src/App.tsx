@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useCallback } from 'react';
-import { Store } from './Store';
+import { Store } from './store';
 
 export default function App(): JSX.Element {
   const { state, dispatch } = useContext(Store);
@@ -7,7 +7,7 @@ export default function App(): JSX.Element {
   const fetchDataAction = useCallback(async () => {
     console.log("useCallback: check how many times it executes")
     //TODO: Move url and action to constants
-    const URL = "https://api.tvmaze.com/singlesearch/shows?q=rick-&-morty&embed=episodes";
+    const URL = process.env.REACT_APP_RICK_AND_MORTY_ENDPOINT;
     const data = await fetch(URL)
     const dataJson = await data.json();
     return dispatch({
