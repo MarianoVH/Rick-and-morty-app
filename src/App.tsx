@@ -19,6 +19,8 @@ interface IEpisode {
 export default function App(): JSX.Element {
   const { state, dispatch } = useContext(Store);
 
+  console.log("This will delete, just remove the TS Error, var no used", state);
+
   const fetchDataAction = useCallback(async () => {
     console.log("useCallback: check how many times it executes")
     //TODO: Move action to constants
